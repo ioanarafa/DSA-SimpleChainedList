@@ -1,17 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-//inset last, insert first, insert after
-//delete last, delete first, delete key
-
 
 typedef struct node{  //am facut continutul nodului
-
     int key;
     struct node* next;
-
 }nodeT;
 
-//cream un nod in lista cu keye data
+//1) cream un nod in lista cu cheia data
 nodeT* create(int givenkey){
     nodeT* p = (nodeT*)malloc(sizeof(nodeT));
     p->key = givenkey;
@@ -19,7 +14,7 @@ nodeT* create(int givenkey){
     return p;
 }
 
-//afisare lista
+//2) afisare lista
 void afisare(nodeT* first){
     nodeT* p =first;
     while(p != NULL)
@@ -30,6 +25,7 @@ void afisare(nodeT* first){
     printf("\n");
 }
 
+//3)
 void insert_first(int givenKey, nodeT** first, nodeT** last )
 {
    nodeT* p = create(givenKey);
@@ -45,6 +41,7 @@ void insert_first(int givenKey, nodeT** first, nodeT** last )
    }
 }
 
+//4)
 void insert_last(int givenkey, nodeT** first, nodeT** last)
 {
     nodeT* p = create(givenkey);
@@ -58,9 +55,9 @@ void insert_last(int givenkey, nodeT** first, nodeT** last)
         (*last)->next = p;
         (*last) = p;
     }
-
 }
 
+//5)
 void insert_after(int givenkey, nodeT** first, nodeT** last, int afterkey )
 {
     nodeT* p = create(givenkey); //nodul care se insereaza dupa nodul afterkey
@@ -76,9 +73,9 @@ void insert_after(int givenkey, nodeT** first, nodeT** last, int afterkey )
         q->next = p;
         if ( q == *last) *last = p;
     }
-
 }
 
+//6)
 void delete_first(nodeT** first, nodeT** last)
 {
     nodeT* p = *first;
@@ -89,9 +86,9 @@ void delete_first(nodeT** first, nodeT** last)
 
         if(*first == NULL) *last =NULL;
     }
-
-
 }
+
+//7)
 void delete_last(nodeT** first, nodeT** last)
 {
     nodeT* p = *first;
@@ -112,6 +109,7 @@ void delete_last(nodeT** first, nodeT** last)
     }
 }
 
+//8)
 void deleteKey(int givenkey, nodeT** first, nodeT** last)
 {
     nodeT* p = *first;
@@ -131,9 +129,7 @@ void deleteKey(int givenkey, nodeT** first, nodeT** last)
         q->next = NULL;
         //free(q);
     }
-
 }
-
 
 int main()
 {
