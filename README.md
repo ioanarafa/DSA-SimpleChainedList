@@ -1,6 +1,7 @@
 Year I, semester II: Data structures and algorithms
 
 course one: simple chained list
+
 operations : 
   1) create Node
   2) print list
